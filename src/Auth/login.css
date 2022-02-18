@@ -1,0 +1,35 @@
+.form-container{
+    margin: 13px 20% auto;
+    padding: 7px;
+    width: 51%;
+}
+.form-group {
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+.form-control-sm {
+    height: calc(2.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+a.btn.btn-lg {
+    background: linear-gradient( 183deg , #f7f7f7, #eaeaea);
+    width: 100%;
+    margin: auto;
+    border: 1px solid #f1f1f1;
+    color: black;
+    max-width: 266px;
+}
+
+button.btn.btn-outline-success {
+    background: linear-gradient( 183deg, #f7f7f7, #eaeaea);
+    color: black;
+    border-color: #f7f7f7;
+}
+
+.custom-link{
+    color: #0056b3!important;
+    font-weight: 600;
+}
