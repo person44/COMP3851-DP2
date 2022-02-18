@@ -56,8 +56,6 @@ function App() {
           <Route exact path="/coursefeed">
             <Coursefeed />
           </Route>
-
-
         </Switch>
       </Router>
 
