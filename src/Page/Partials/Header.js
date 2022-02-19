@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import logo from  '../../Image/UON.png'
+import 'animate.css'
 
 function Header() {
     return (
@@ -23,7 +24,8 @@ function Header() {
 
                     </Nav>
                     <Form inline>
-                        <Link className="btn btn-lg mt-4" to="/Home">Logout</Link>
+                    <h4 class="animate__animated animate__slideInRight">Hello, &lt; Student Name &gt; </h4>
+                        <Link className="btn btn-lg mt-4" to="/Login">Logout</Link>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>

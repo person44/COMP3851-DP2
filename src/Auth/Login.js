@@ -35,6 +35,9 @@ function Login() {
                             <Link className="btn btn-lg" to="/Home">Login</Link>
                             <p className="mt-2">Forgot Password? <a href="#" className="text-primary custom-link">Click Here</a></p>
                         </div>
+                        <div>
+                            <i>There is no need for you to register an account with University as you can login using your current UON account.</i>
+                        </div>
                     </Col>
 
                 </Row>

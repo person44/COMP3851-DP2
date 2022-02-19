@@ -1,33 +1,18 @@
 import React from 'react'
-import { Col, Container, Row, Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import Header from './Partials/Header'
+import image from "../Image/UON background.jpg"
+import 'animate.css'
 
 function Home() {
     return (
-        <>
-
-            <Header />
-            <h1 className="mt-5 p-2 text-gray">Student Course Planner</h1>
-            <Container fluid className="mt-5">
-                <Row>
-                    <Col className="text-left">
-                        <h2 className="mb-3">Hello, &lt; Student Name &gt; </h2>
-                        <p className="intropara">This program is intented to help student to pathway their degree completion based on the requirement and limitation assigned by the UoN University.</p>
-                        <p className="intropara">Students need to input the information regarding their degree informations to be generated a schedule that recommended to them. The plan could be further modified to fullfill their neccsity.</p>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col md={6} className="text-center">
-                        <Link className="btn btn-lg mt-4" to="addcourse">Create Plan</Link>
-                    </Col>
-                    <Col md={6} className="text-center">
-                        <Link className="btn btn-lg mt-4" to="addcourse">Review Created Plan</Link>
-                    </Col>
-                </Row>
-            </Container>
-        </>
-    )
-}
+        <div style={{ backgroundImage:`url('${image}')`, backgroundSize: 'cover', height: '50vh' }}>
+            <div class="animate__animated animate__zoomIn" style={{ fontWeight:'bolder', fontSize:50, color: 'white', position: 'absolute', top: '16vh', left: '33vh'}}>
+                Hello and Welcome to the University of Newcastle, Australia
+            </div>
+            <div style={{ fontSize: 10, color:'white', position: 'absolute', top: '48vh', right: 0 }}>
+                Image from: <a href="https://www.newcastle.edu.au/study/international">UON Australia</a>
+                </div>
+                </div>
+    );
+  }
 
 export default Home
