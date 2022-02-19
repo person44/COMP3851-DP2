@@ -22,7 +22,7 @@ function Welcome() {
       }}
     >
         <Typist>
-          <p style={ heading }> Welcome to UON iPath! </p>
+          <p style={ heading }> Welcome to UON iPath! <Button href="./Login">SKIP AHEAD AND LOGIN</Button></p>
           <Typist.Delay ms={50} />
           We are always here for you!
           <br />
