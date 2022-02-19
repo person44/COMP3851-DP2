@@ -1,4 +1,3 @@
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Auth/Login';
@@ -7,6 +6,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import Welcome from './Page/Welcome';
 import Home from './Page/Home';
 import CourseForm from './Page/CourseForm';
 import ProgramCreate from './Page/ProgramCreate';
@@ -35,10 +35,13 @@ function App() {
           <Route exact path="/admin/success">
             <ASuccessPage/>
           </Route>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
           <Route exact path="/Home">
             <Home />
           </Route>
-          <Route exact path="/">
+          <Route exact path="/Login">
             <Login />
           </Route>
           <Route exact path="/addcourse">

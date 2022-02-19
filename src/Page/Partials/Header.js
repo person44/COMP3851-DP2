@@ -1,14 +1,19 @@
-
 import React from 'react'
-import { Form, Navbar, Button, Nav, } from 'react-bootstrap'
+import { Form, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import logo from  '../../Image/UON.png'
+
 function Header() {
     return (
         <Navbar bg="light" expand="lg" >
                 
                 <Navbar.Brand href="./" className="pt-0 pb-0" >
-                    <h1 className="mb-0"> <span><img className="nav-img" src={logo} width={100} height={100} /></span>iPath</h1>
+                    <h1 className="mb-0">
+                        <span>
+                            <img className="nav-img" src={logo} width={100} height={100} />
+                            iPath
+                        </span>
+                        </h1>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -21,7 +26,6 @@ function Header() {
                         <Link className="btn btn-lg mt-4" to="/Home">Logout</Link>
                     </Form>
                 </Navbar.Collapse>
-        
             </Navbar>
     )
 }
