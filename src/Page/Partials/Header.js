@@ -1,35 +1,34 @@
-import React from 'react'
-import { Form, Navbar, Nav } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import logo from  '../../Image/UON.png'
-import 'animate.css'
+import React from 'react';
+import { bubble as Menu } from 'react-burger-menu';
+import '../../App.css';
 
-function Header() {
-    return (
-        <Navbar bg="light" expand="lg" >
-                
-                <Navbar.Brand href="./" className="pt-0 pb-0" >
-                    <h1 className="mb-0">
-                        <span>
-                            <img className="nav-img" src={logo} width={100} height={100} />
-                            iPath
-                        </span>
-                        </h1>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
-                        <Nav.Link href="#home"></Nav.Link>
-                        <Nav.Link href="#link"></Nav.Link>
+//import sidebar from react-pro-sidebar
+import {
+  MenuItem
+} from "react-pro-sidebar";
 
-                    </Nav>
-                    <Form inline>
-                    <h4 class="animate__animated animate__slideInRight">Hello, &lt; Student Name &gt; </h4>
-                        <Link className="btn btn-lg mt-4" to="/Login">Logout</Link>
-                    </Form>
-                </Navbar.Collapse>
-            </Navbar>
-    )
-}
+//import icons from react icons
+import { FaList } from "react-icons/fa";
+import { FiHome, FiLogOut, FiSave } from "react-icons/fi";
+import { MdCreate } from "react-icons/md";
 
-export default Header
+//import UON logo
+import logo from "../../Image/UON.png"
+
+export default props => {
+  return (
+    <Menu iconShape="square">
+      <img src={ logo } height= '200' />
+      <MenuItem icon={<FiHome />}>
+        <a href="../Home" className="menu-item">Home</a>
+        </MenuItem>
+        <MenuItem icon={<FaList />}> View Courses</MenuItem>
+        <MenuItem icon={<MdCreate />}>
+        <a href="../addcourse" className="menu-item">Create my course plan</a>
+        </MenuItem>
+        <MenuItem icon={<FiSave />}>
+        <a href="../coursefeed" className="menu-item">My saved course plan</a>
+          </MenuItem>
+    </Menu>
+  );
+};
