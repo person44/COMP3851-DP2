@@ -18,7 +18,7 @@ function Welcome() {
         color: "#fff",
         backgroundColor: "#000",
         height: "100vh",
-        fontSize: "2vw",
+        fontSize: "3vw",
         fontFamily: "monospace",
         padding: 100
       }}
