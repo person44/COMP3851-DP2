@@ -9,7 +9,7 @@ URL: https://codesandbox.io/s/k54yp599oo?file=/src/index.js*/
 
 function Welcome() {
     const heading = {
-        fontSize: "5vw"
+        fontSize: "6vw"
     }
 
   return (
@@ -18,19 +18,15 @@ function Welcome() {
         color: "#fff",
         backgroundColor: "#000",
         height: "100vh",
-        fontSize: "3vw",
+        fontSize: "5vw",
         fontFamily: "monospace",
-        padding: 100
+        padding: "5vw"
       }}
     >
         <Typist>
           <p style={ heading }> Welcome to UON iPath! </p>
           <Typist.Delay ms={50} />
-          We are always here for you!
-          <br />
-          UON iPath helps you to find your perfect pathway from a freshman to the day you graduate.
-          <br />
-          TRY US!
+          We help you to find your perfect pathway from a freshman to the day you graduate. TRY US!
               </Typist>
               <Button variant="success" href="./Login">SKIP AHEAD AND LOGIN</Button>
     </div>
