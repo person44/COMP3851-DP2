@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+ }
+
 .btn.btn-lg , .btn.btn-sm , .btn.btn-md{
   background: linear-gradient( 183deg , #f7f7f7, #eaeaea);
     padding: 7px;
@@ -15,6 +19,13 @@
 .custom-height{
     height: 42vh;
     margin-bottom: 100px;
+}
+
+/*image for nav*/
+.navImage {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
 }
 
 /* Sidebar */
