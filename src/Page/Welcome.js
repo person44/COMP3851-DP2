@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import Typist from "react-typist";
 import { Button } from "react-bootstrap";
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
 
 /* Typing effect by hiteshsahu
 URL: https://codesandbox.io/s/k54yp599oo?file=/src/index.js*/
@@ -18,7 +19,8 @@ function Welcome() {
         height: "100vh",
         fontSize: 40,
         fontFamily: "monospace",
-        padding: 100
+        padding: 100,
+        maxWidth: "100%"
       }}
     >
         <Typist>
