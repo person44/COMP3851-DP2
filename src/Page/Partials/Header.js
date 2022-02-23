@@ -13,7 +13,7 @@ import { FiHome, FiLogOut, FiSave } from "react-icons/fi";
 import { MdCreate } from "react-icons/md";
 
 //import UON logo
-import logo from "../../Image/UON.png"
+import logo from "../../Image/UON Icon.png"
 
 export default props => {
   return (

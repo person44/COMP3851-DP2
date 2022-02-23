@@ -3,7 +3,7 @@ import React from 'react'
 
 import { Col, Container, Form, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import logo from '../Image/UON.png'
+import logo from '../Image/UON Icon.png'
 import './login.css'
 
 function Login() {
@@ -19,14 +19,14 @@ function Login() {
                         </div>
                         <Form className="container form-container">
                             <Form.Group className="form-group" as={Row}>
-                                <Form.Label column sm="4" className="text-left">UON Email Address:</Form.Label>
-                                <Col sm="8">
+                                <Form.Label column sm="2" className="text-left">UON Email Address:</Form.Label>
+                                <Col sm="5">
                                     <Form.Control type="email" size="sm" />
                                 </Col>
                             </Form.Group>
                             <Form.Group className="form-group" as={Row}>
-                                <Form.Label column sm="4" className="text-left">Password:</Form.Label>
-                                <Col sm="8">
+                                <Form.Label column sm="2" className="text-left">Password:</Form.Label>
+                                <Col sm="5">
                                     <Form.Control type="password" size="sm" />
                                 </Col>
                             </Form.Group>
