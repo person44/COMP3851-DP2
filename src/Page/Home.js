@@ -8,9 +8,6 @@ import "animate.css"
 import "../App.css"
 
 function Home() {
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        document.write("mobile");
-      }else{
     return (
         <>
         <Header />
@@ -28,6 +25,5 @@ function Home() {
             </>
     );
   }
-}
 
 export default Home
