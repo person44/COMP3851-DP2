@@ -2,6 +2,33 @@ import React from 'react'
 import { Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Header from './Partials/Header'
+import { db } from '../firebaseDB';
+import { ref, onValue } from "firebase/database";
+
+const courseRef = ref(db, "Course");
+var courseData = [];
+var cnameList = [];
+var i = 0;
+
+function AddCourseToList(){
+    courseData.forEach(element =>{
+      cnameList[i] = element.Name;
+      i++
+    })
+    i = 0;
+}
+function getCourseData(){
+    onValue(courseRef, (snapshot)=>{
+    snapshot.forEach(childSnapshot =>{
+        courseData.push(childSnapshot.val());
+    });
+    AddCourseToList();
+    });
+};
+
+getCourseData();
+console.log(cnameList);
+
 
 function Summary() {
     return (
@@ -27,6 +54,7 @@ function Summary() {
                                     <td>
                                         <select className="form-control">
                                             <option>Select</option>
+                                            {cnameList.map(item=>(<option key={item} value={item}>{item}</option>))}
                                         </select>
                                     </td>
                                 </tr>
