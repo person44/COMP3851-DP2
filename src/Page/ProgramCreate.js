@@ -2,6 +2,14 @@ import React from 'react'
 import { Card, Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Header from './Partials/Header'
+import { expList } from './CourseForm'
+
+if (expList.includes("Bachelor of Information Technology (Singapore)", 0)) {
+    var campus = "Singapore"
+}else {
+    var campus = "Callaghan"
+}
+
 
 function ProgramCreate() {
     return (
@@ -24,7 +32,7 @@ function ProgramCreate() {
                                     <h4>Degree</h4>
                                 </Col>
                                 <Col>
-                                    <p> &lt; Degree Name &gt; </p>
+                                    <p>{expList[0]}</p>
                                 </Col>
                             </Row>
                             <Row>
@@ -32,7 +40,7 @@ function ProgramCreate() {
                                     <h4>Campus</h4>
                                 </Col>
                                 <Col>
-                                    <p> &lt; Campus Location &gt; </p>
+                                    <p>{campus}</p>
                                 </Col>
                             </Row>
                             <Row>
@@ -41,8 +49,7 @@ function ProgramCreate() {
                                 </Col>
                                 <Col>
                                     <div className="border w-50">
-                                        <p> &lt; Major 1 &gt; </p>
-                                        <p> &lt; Major 2 &gt; </p>
+                                        <p>{expList[1]}</p>
                                     </div>
                                 </Col>
                             </Row>
@@ -51,7 +58,7 @@ function ProgramCreate() {
                                     <h4>Start Year</h4>
                                 </Col>
                                 <Col>
-                                    <p> &lt; Start Year &gt; </p>
+                                    <p>{expList[2]}</p>
                                 </Col>
                             </Row>
                             <Row>
@@ -59,7 +66,7 @@ function ProgramCreate() {
                                     <h4>Trimester Commencement</h4>
                                 </Col>
                                 <Col>
-                                    <p> &lt; Trimester &gt; </p>
+                                    <p>{expList[3]}</p>
                                 </Col>
                             </Row>
                         </Card>
