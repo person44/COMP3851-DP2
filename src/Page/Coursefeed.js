@@ -2,6 +2,22 @@ import React from 'react'
 import Header from './Partials/Header'
 import { Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { db } from '../firebaseDB';
+import { ref, onValue } from "firebase/database";
+
+const degRef = ref(db, "Course");
+var courseData = [];
+function getCourseData(){
+    onValue(degRef, (snapshot)=>{
+    snapshot.forEach(childSnapshot =>{
+        courseData.push(childSnapshot.val());
+    });
+    });
+};
+
+getCourseData();
+console.log(courseData);
+
 function Coursefeed() {
     return (
         <>
