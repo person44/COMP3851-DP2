@@ -4,13 +4,6 @@ import { Link } from 'react-router-dom'
 import Header from './Partials/Header'
 import { expList } from './CourseForm'
 
-if (expList.includes("Bachelor of Information Technology (Singapore)", 0)) {
-    var campus = "Singapore"
-}else {
-    var campus = "Callaghan"
-}
-
-
 function ProgramCreate() {
     return (
         <>
@@ -40,7 +33,7 @@ function ProgramCreate() {
                                     <h4>Campus</h4>
                                 </Col>
                                 <Col>
-                                    <p>{campus}</p>
+                                    <p>{expList[1]}</p>
                                 </Col>
                             </Row>
                             <Row>
@@ -49,7 +42,7 @@ function ProgramCreate() {
                                 </Col>
                                 <Col>
                                     <div className="border w-50">
-                                        <p>{expList[1]}</p>
+                                        <p>{expList[2]}</p>
                                     </div>
                                 </Col>
                             </Row>
@@ -58,7 +51,7 @@ function ProgramCreate() {
                                     <h4>Start Year</h4>
                                 </Col>
                                 <Col>
-                                    <p>{expList[2]}</p>
+                                    <p>{expList[3]}</p>
                                 </Col>
                             </Row>
                             <Row>
@@ -66,7 +59,7 @@ function ProgramCreate() {
                                     <h4>Trimester Commencement</h4>
                                 </Col>
                                 <Col>
-                                    <p>{expList[3]}</p>
+                                    <p>{expList[4]}</p>
                                 </Col>
                             </Row>
                         </Card>
