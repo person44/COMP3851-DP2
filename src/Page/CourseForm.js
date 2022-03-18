@@ -54,10 +54,15 @@ function getMajorForOp(deg){
 
 function putSelectedIItems(deg, maj, year, com, numc){
     expList[0] = deg;
-    expList[1] = maj;
-    expList[2] = year;
-    expList[3] = com;
-    expList[4] = numc;
+    if(deg=="Bachelor of Information Technology (Singapore)"){
+        expList[1]="Singapore";
+    }else{
+        expList[1]="Callaghan";
+    }
+    expList[2] = maj;
+    expList[3] = year;
+    expList[4] = com;
+    expList[5] = numc;
     console.log(expList);
 }
 getDegData();
