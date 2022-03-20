@@ -29,13 +29,10 @@ function Welcome() {
           We help you to find your perfect pathway from a freshman to the day you graduate. TRY US! <br />
           </Typist>
           
-          <Button variant="success" href="./Login">SKIP AHEAD AND LOGIN</Button>
+          <Button variant="success" href="../Login">SKIP AHEAD AND LOGIN</Button>
     </div>
   );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<Welcome />, rootElement);
 
 
 export default Welcome;

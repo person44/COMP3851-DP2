@@ -17,11 +17,13 @@ import Index from './Page/Admin/Index';
 import ACreateCourse from './Page/Admin/ACreateCourse';
 import AUpdateCourse from './Page/Admin/AUpdateCourse';
 import ASuccessPage from './Page/Admin/ASuccessPage';
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function App() {
   return (
     <>
       <Router>
+        <useAuthState>
         <Switch>
           <Route exact path="/admin/index">
             <Index/>
@@ -36,11 +38,9 @@ function App() {
             <ASuccessPage/>
           </Route>
           <Route exact path="/">
-            <Welcome />
+            <Login />
           </Route>
-          <Route exact path="/Home">
-            <Home />
-          </Route>
+          <Route exact path="/" component={Home} />
           <Route exact path="/Login">
             <Login />
           </Route>
@@ -60,6 +60,7 @@ function App() {
             <Coursefeed />
           </Route>
         </Switch>
+        </useAuthState>
       </Router>
 
     </>
