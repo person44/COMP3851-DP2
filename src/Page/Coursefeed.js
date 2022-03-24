@@ -4,6 +4,8 @@ import { Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { db } from '../firebaseDB';
 import { ref, onValue } from "firebase/database";
+import { courseList } from './Summary';
+import { expList } from './CourseForm';
 
 const degRef = ref(db, "Course");
 var courseData = [];
@@ -25,7 +27,7 @@ function Coursefeed() {
             <Container className="mt-4" fluid>
                 <Row>
                     <Col className="text-left">
-                        <h2 className="mb-3">Hello , &lt; Insert Student Name &gt; </h2>
+                        <h2 className="mb-3">Hello</h2>
                     </Col>
                 </Row>
                 <Row className="no-gutters">
@@ -63,34 +65,34 @@ function Coursefeed() {
                                     <Col sm="8">
                                         <Card className="border card1">
                                             <div className="border text-center">
-                                                <h3> &lt; Year 1 &gt;</h3>
+                                                <h3>{expList[3]}</h3>
                                             </div>
                                             <Row className="no-gutters">
                                                 <Col sm="4" >
                                                     <ListGroup>
-                                                        <ListGroup.Item>Trimester</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 1 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 2 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 3 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 4 &gt;</ListGroup.Item>
+                                                        <ListGroup.Item>Trimester 1</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[0]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[1]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[2]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[3]}</ListGroup.Item>
                                                     </ListGroup>
                                                 </Col>
                                                 <Col sm="4">
                                                     <ListGroup>
-                                                        <ListGroup.Item>Trimester</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 1 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 2 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 3 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 4 &gt;</ListGroup.Item>
+                                                        <ListGroup.Item>Trimester 2</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[4]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[5]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[6]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[7]}</ListGroup.Item>
                                                     </ListGroup>
                                                 </Col>
                                                 <Col sm="4">
                                                     <ListGroup>
-                                                        <ListGroup.Item>Trimester</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 1 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 2 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 3 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 4 &gt;</ListGroup.Item>
+                                                        <ListGroup.Item>Trimester 3</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[8]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[9]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[10]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[11]}</ListGroup.Item>
                                                     </ListGroup>
                                                 </Col>
                                             </Row>
@@ -99,16 +101,16 @@ function Coursefeed() {
                                     <Col sm="4">
                                         <Card className="border card1">
                                             <div className="border text-center">
-                                                <h3> &lt; Year 1 &gt;</h3>
+                                                <h3>{parseInt(expList[3])+1}</h3>
                                             </div>
                                             <Row className="no-gutters">
                                                 <Col sm="12" >
                                                     <ListGroup>
-                                                        <ListGroup.Item>Trimester</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 1 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 2 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 3 &gt;</ListGroup.Item>
-                                                        <ListGroup.Item>&lt; Course 4 &gt;</ListGroup.Item>
+                                                        <ListGroup.Item>Trimester 1</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[12]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[13]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[14]}</ListGroup.Item>
+                                                        <ListGroup.Item>{courseList[15]}</ListGroup.Item>
                                                     </ListGroup>
                                                 </Col>
 
