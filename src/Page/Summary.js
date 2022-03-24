@@ -1,14 +1,16 @@
-import React from 'react'
-import { Card, Col, Container, ListGroup, Row } from 'react-bootstrap'
+import React, {useState} from 'react'
+import { Card, Col, Container, Button, ListGroup, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Header from './Partials/Header'
 import { db } from '../firebaseDB';
 import { ref, onValue } from "firebase/database";
+import { expList } from './CourseForm';
 
 const courseRef = ref(db, "Course");
 var courseData = [];
 var cnameList = [];
 var i = 0;
+const courseList = [];
 
 function AddCourseToList(){
     courseData.forEach(element =>{
@@ -26,11 +28,18 @@ function getCourseData(){
     });
 };
 
+function setCourseT(Course, index){
+    courseList[index] = Course;
+    console.log(courseList);
+}
+
 getCourseData();
 console.log(cnameList);
 
 
 function Summary() {
+    const [selCourse, setCourse] = useState();
+
     return (
         <>
             <Header />
@@ -52,8 +61,8 @@ function Summary() {
                                 </tr>
                                 <tr>
                                     <td>
-                                        <select className="form-control">
-                                            <option>Select</option>
+                                        <select className="form-control" as="select" value={selCourse} onChange={e=>setCourse(e.target.value)}>
+                                            <option value="NaN">Select</option>
                                             {cnameList.map(item=>(<option key={item} value={item}>{item}</option>))}
                                         </select>
                                     </td>
@@ -63,9 +72,9 @@ function Summary() {
                     </Col>
                 </Row>
                 <Row className="mt-4">
-                    {/* 2021 start */}
+                    {/* year 1 start */}
                     <Col sm="12" className="text-center">
-                        <h6>2021</h6>
+                        <h6>{expList[3]}</h6>
                     </Col>
                     <Col sm="4">
                         <Row className="no-gutters">
@@ -75,10 +84,10 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[0]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <button className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 0)}></button>
                                             </Col>
                                             <Col sm="6" className="mt-4">
                                                 <i className="btn btn-danger fa fa-times"></i>
@@ -93,71 +102,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[1]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 1)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
-                                            </Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Col>
-                            <Col sm="4">
-                                <ListGroup className="text-center">
-                                    <ListGroup.Item className="bg-success text-white">Course 3</ListGroup.Item>
-                                    <ListGroup.Item className="bg-success text-white">
-                                        <Row>
-                                            <Col sm="12" className="mb-1">
-                                                Course Name
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
-                                            </Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Col>
-                        </Row>
-                    </Col>
-                    <Col sm="4">
-                        <Row className="no-gutters">
-                            <Col sm="4" >
-                                <ListGroup className="text-center">
-                                    <ListGroup.Item>Course 1</ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <Row>
-                                            <Col sm="12" className="mb-1">
-                                                Course Name
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
-                                            </Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                </ListGroup>
-                            </Col>
-                            <Col sm="4">
-                                <ListGroup className="text-center">
-                                    <ListGroup.Item>Course 2</ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <Row>
-                                            <Col sm="12" className="mb-1">
-                                                Course Name
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
-                                            </Col>
-                                            <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 1)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -169,13 +120,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[2]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 2)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 2)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -191,13 +142,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[4]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 4)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 4)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -209,13 +160,71 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[5]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 5)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 5)}></i>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Col>
+                            <Col sm="4">
+                                <ListGroup className="text-center">
+                                    <ListGroup.Item>Course 3</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col sm="12" className="mb-1">
+                                                {courseList[6]}
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 6)}></i>
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 6)}></i>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col sm="4">
+                        <Row className="no-gutters">
+                            <Col sm="4" >
+                                <ListGroup className="text-center">
+                                    <ListGroup.Item>Course 1</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col sm="12" className="mb-1">
+                                                {courseList[8]}
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 8)}></i>
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 8)}></i>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Col>
+                            <Col sm="4">
+                                <ListGroup className="text-center">
+                                    <ListGroup.Item>Course 2</ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <Row>
+                                            <Col sm="12" className="mb-1">
+                                                {courseList[9]}
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 9)}></i>
+                                            </Col>
+                                            <Col sm="6" className="mt-4">
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 9)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -223,17 +232,17 @@ function Summary() {
                             </Col>
                             <Col sm="4">
                                 <ListGroup className="text-center bg-success">
-                                    <ListGroup.Item className="bg-danger text-white">Course 3</ListGroup.Item>
-                                    <ListGroup.Item className="bg-danger text-white">
+                                    <ListGroup.Item>Course 3</ListGroup.Item>
+                                    <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[10]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 10)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 10)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -241,10 +250,10 @@ function Summary() {
                             </Col>
                         </Row>
                     </Col>
-                    {/* 2021 end */}
-                    {/* 2022 start */}
+                    {/* year 1 end */}
+                    {/* year 2 start */}
                     <Col sm="12" className="text-center mt-4">
-                        <h6>2022</h6>
+                        <h6>{parseInt(expList[3])+1}</h6>
                     </Col>
                     <Col sm="4">
                         <Row className="no-gutters">
@@ -254,13 +263,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[12]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 12)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 12)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -272,13 +281,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[13]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 13)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 13)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -290,13 +299,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[14]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 14)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 14)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -312,13 +321,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[16]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 16)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 16)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -330,13 +339,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[17]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 17)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 17)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -348,13 +357,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[18]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 18)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 18)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -370,13 +379,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[20]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 20)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 20)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -388,13 +397,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[21]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 21)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 21)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -406,13 +415,13 @@ function Summary() {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col sm="12" className="mb-1">
-                                                Course Name
+                                                {courseList[22]}
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-success fa fa-check"></i>
+                                                <i className="btn btn-success fa fa-check" onClick={()=> setCourseT(selCourse, 22)}></i>
                                             </Col>
                                             <Col sm="6" className="mt-4">
-                                                <i className="btn btn-danger fa fa-times"></i>
+                                                <i className="btn btn-danger fa fa-times" onClick={()=> setCourseT(null, 22)}></i>
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
@@ -425,7 +434,7 @@ function Summary() {
                             <Link className="btn btn-lg mt-4" to="/successpage">Save Plan</Link>
                         </div>
                     </Col>
-                    {/* 2022 end */}
+                    {/* year 2 end */}
                 </Row>
                 <Row className="mt-4 mb-5">
                     <Col sm="7">
@@ -439,4 +448,5 @@ function Summary() {
     )
 }
 
-export default Summary
+export { Summary, courseList };
+
