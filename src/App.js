@@ -10,7 +10,7 @@ import Welcome from './Page/Welcome';
 import Home from './Page/Home';
 import { CourseForm } from './Page/CourseForm';
 import ProgramCreate from './Page/ProgramCreate';
-import Summary from './Page/Summary';
+import { Summary } from './Page/Summary';
 import SuccessPage from './Page/SuccessPage';
 import Coursefeed from './Page/Coursefeed';
 import Index from './Page/Admin/Index';
